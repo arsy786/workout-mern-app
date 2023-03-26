@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 
 const WorkoutForm = () => {
-  const { dispatch } = useWorkoutsContext();
 	const [title, setTitle] = useState("");
 	const [load, setLoad] = useState("");
 	const [reps, setReps] = useState("");
@@ -19,7 +17,7 @@ const WorkoutForm = () => {
 			body: JSON.stringify(workout),
 			headers: {
 				"Content-Type": "application/json",
-			}
+			},
 		});
 		const json = await response.json();
 
@@ -35,7 +33,6 @@ const WorkoutForm = () => {
 			setError(null);
 			setEmptyFields([]);
 			console.log("new workout added", json);
-      dispatch({type: 'CREATE_WORKOUT', payload: json});
 		}
 	};
 
@@ -48,7 +45,7 @@ const WorkoutForm = () => {
 				type="text"
 				onChange={(e) => setTitle(e.target.value)}
 				value={title}
-				className={emptyFields.includes('title') ? 'error' : ''}
+				className={emptyFields.includes("title") ? "error" : ""}
 			/>
 
 			<label>Load (in kg):</label>
@@ -56,7 +53,7 @@ const WorkoutForm = () => {
 				type="number"
 				onChange={(e) => setLoad(e.target.value)}
 				value={load}
-				className={emptyFields.includes('load') ? 'error' : ''}
+				className={emptyFields.includes("load") ? "error" : ""}
 			/>
 
 			<label>Reps:</label>
@@ -64,11 +61,11 @@ const WorkoutForm = () => {
 				type="number"
 				onChange={(e) => setReps(e.target.value)}
 				value={reps}
-				className={emptyFields.includes('reps') ? 'error' : ''}
+				className={emptyFields.includes("reps") ? "error" : ""}
 			/>
 
 			<button>Add Workout</button>
-      {error && <div className="error">{error}</div>}
+			{error && <div className="error">{error}</div>}
 		</form>
 	);
 };
