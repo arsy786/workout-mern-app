@@ -1,6 +1,6 @@
 # Workout MERN App (TBC\*)
 
-\*Auth frontend to be complete [MERN Auth Tutorial (YouTube/TheNetNinja)](https://www.youtube.com/playlist?list=PL4cUxeGkcC9g8OhpOZxNdhXggFz2lOuCT)
+\*Auth frontend and backend to be complete [MERN Auth Tutorial (YouTube/TheNetNinja)](https://www.youtube.com/playlist?list=PL4cUxeGkcC9g8OhpOZxNdhXggFz2lOuCT)
 
 This is a full-stack MERN (MongoDB, Express, React, Node.js) app for managing workouts. It allows users to create and save workout routines and track their progress over time.
 This project was built following the [MERN Stack Crash Course Tutorial (YouTube/TheNetNinja)](https://www.youtube.com/playlist?list=PL4cUxeGkcC9iJ_KkrkBZWZRHVwnzLIoUE) playlist on YouTube.
@@ -15,17 +15,18 @@ This project was built following the [MERN Stack Crash Course Tutorial (YouTube/
 
 The app provides the following features:
 
-    - Sign up and login
-    - Create a new workout routine
-    - Add exercises to a workout routine
-    - View workout routines and exercises
-    - Log completed workouts and track progress over time
+    - Users can create, read, update, and delete workouts
+    - Workouts are stored in a MongoDB database
+    - Register, Login and Logout*
+    - User authentication with JSON Web Tokens (JWT)*
 
 Note: The app requires a MongoDB database to be running in order to work properly.
 
 ## Installation
 
-To install this application, you will need to have Node.js and MongoDB installed on your system.
+To install this application, you will need to have Node.js and MongoDB installed on your system. 
+
+Once you have these installed, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/arsy786/workout-mern-app.git`
 2. Install the dependencies: 
@@ -33,43 +34,39 @@ To install this application, you will need to have Node.js and MongoDB installed
 - `cd workout-mern-app/backend && npm install` 
 - `cd workout-mern-app/frontend && npm install`
 
-3. Set up the environment variables: 
-
-- Backend: create a .env file in the backend directory with the following variables:
+3. Set up the environment variables by creating a .env file in the backend directory with the following variables:
 
 ```makefile
-PORT=<your Port number>
-MONGODB_URI=<your MongoDB connection string>
-JWT_SECRET=<your JWT secret key>
+PORT=4000
+MONGO_URI=<your MongoDB connection string>
 ```
 
 4. Start the backend and frontend development servers:
 
-- Backend: `cd workout-mern-app/backend && npm run dev`
+- Backend: `cd workout-mern-app/backend && npm run dev` or `npm run start`
 - Frontend: `cd workout-mern-app/frontend && npm start`
 
 ## Usage
 
-Once the server is running, you can access the application at http://localhost:5000.
+Once the server is running, you can access the application at http://localhost:3000.
 
 ### Backend
 
 The backend provides a REST API for managing workouts. Here are the available endpoints:
 
-    GET /api/workouts: Get a list of all workout routines.
-    POST /api/workouts: Create a new workout routine.
-    GET /api/workouts/:id: Get the details of a specific workout routine.
-    PATCH /api/workouts/:id: Update a workout routine.
-    DELETE /api/workouts/:id: Delete a workout routine.
+    GET /api/workouts - Get all workouts.
+    GET /api/workouts/:id - Get a workout by ID.
+    POST /api/workouts - Create a new workout routine.
+    PATCH /api/workouts/:id - Update a workout by ID.
+    DELETE /api/workouts/:id - Delete a workout by ID.
     
 ### Frontend
 
 The app provides the following features:
 
-    - View a list of notes
-    - Create a new note
-    - View the details of a note
-    - Update a note
-    - Delete a note
+    - View a list of workouts
+    - Create a new workout
+    - Update a workout
+    - Delete a workout
 
 Note: The app requires the backend server to be running in order to work properly.
