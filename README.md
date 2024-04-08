@@ -114,11 +114,6 @@ The backend provides a REST API for managing workouts & users. Here are the avai
     - PATCH /api/workouts/:id - Update a workout by ID
     - DELETE /api/workouts/:id - Delete a workout by ID
 
-    - POST /api/user/signup - Register a new user
-    - POST /api/user/login - Login a user
-
-The API requires user authentication with JSON Web Tokens (JWT). To authenticate a user, send a `POST` request to `/api/user/login` with a JSON body containing the `email` and `password` fields. The server will respond with a JWT, which should be included in subsequent requests to protected endpoints.
-
 ## Frontend
 
 The app provides the following features:
