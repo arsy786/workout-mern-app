@@ -50,8 +50,6 @@ JWT_SECRET=<Your JWT secret>
 }
 ```
 
-```
-
 5. Start the backend and frontend development servers:
 
 - Backend: `cd workout-mern-app/backend && npm run dev` or `npm run start`
@@ -85,4 +83,3 @@ The app provides the following features:
     - User authorization (restricted access to certain pages)
 
 Note: The app requires the backend server to be running in order to work properly.
-```
