@@ -36,12 +36,23 @@ Once you have these installed, follow these steps:
 
 3. Set up the environment variables by creating a .env file in the backend directory with the following variables:
 
-```makefile
-PORT=4000
-MONGO_URI=<your MongoDB connection string>
+```env
+PORT=5000
+MONGODB_URI=<Your MongoDB connection string>
+JWT_SECRET=<Your JWT secret>
 ```
 
-4. Start the backend and frontend development servers:
+4. Add a proxy attribute in the frontend package.json file with the following:
+
+```json
+{
+	"proxy": "http://localhost:4000"
+}
+```
+
+```
+
+5. Start the backend and frontend development servers:
 
 - Backend: `cd workout-mern-app/backend && npm run dev` or `npm run start`
 - Frontend: `cd workout-mern-app/frontend && npm start`
@@ -59,6 +70,8 @@ The backend provides a REST API for managing workouts. Here are the available en
     POST /api/workouts - Create a new workout routine.
     PATCH /api/workouts/:id - Update a workout by ID.
     DELETE /api/workouts/:id - Delete a workout by ID.
+    POST /api/auth/register - Register a new user
+    POST /api/auth/login - Log in an existing user
 
 ### Frontend
 
@@ -68,5 +81,8 @@ The app provides the following features:
     - Create a new workout
     - Update a workout
     - Delete a workout
+    - User authentication (register and login)
+    - User authorization (restricted access to certain pages)
 
 Note: The app requires the backend server to be running in order to work properly.
+```
