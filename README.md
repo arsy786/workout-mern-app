@@ -56,8 +56,8 @@ This project is divided into two main parts: the backend and the frontend. Follo
 
    ```env
    PORT=4000
-   MONGO_URI=<Your MongoDB connection string>
-   SECRET=<Your JWT secret key>
+   MONGO_URI=<Your MongoDB connection string> # e.g. mongodb://localhost:27017/<database>
+   SECRET=<Your JWT secret key> # e.g. secret
    ```
 
 4. Start the backend:
