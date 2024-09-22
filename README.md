@@ -56,11 +56,19 @@ This project is divided into two main parts: the backend and the frontend. Follo
 
    ```env
    PORT=4000
-   MONGO_URI=<Your MongoDB connection string> # e.g. mongodb://localhost:27017/<database>
-   SECRET=<Your JWT secret key> # e.g. secret
+   MONGO_URI=<Your MongoDB connection string>
+   SECRET=<Your JWT secret key>
    ```
 
-4. Start the backend:
+   For example:
+
+   ```env
+   PORT=4000
+   MONGO_URI=mongodb://localhost:27017/workout-mern-app
+   SECRET=secret
+   ```
+
+5. Start the backend:
 
    ```bash
    npm run dev
