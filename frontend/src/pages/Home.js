@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
 import { useAuthContext } from "../hooks/useAuthContext";
@@ -7,6 +7,7 @@ import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 const Home = () => {
 	const { workouts, dispatch } = useWorkoutsContext();
 	const { user } = useAuthContext();
+	const [editableWorkout, setEditableWorkout] = useState(null);
 
 	useEffect(() => {
 		const fetchWorkouts = async () => {
@@ -32,10 +33,17 @@ const Home = () => {
 			<div className="workouts">
 				{workouts &&
 					workouts.map((workout) => (
-						<WorkoutDetails key={workout._id} workout={workout} />
+						<WorkoutDetails
+							key={workout._id}
+							workout={workout}
+							setEditableWorkout={setEditableWorkout}
+						/>
 					))}
 			</div>
-			<WorkoutForm />
+			<WorkoutForm
+				editableWorkout={editableWorkout}
+				setEditableWorkout={setEditableWorkout}
+			/>
 		</div>
 	);
 };

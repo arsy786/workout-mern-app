@@ -59,12 +59,17 @@ header a {
 .workout-details span {
 	position: absolute;
 	top: 20px;
-	right: 20px;
 	cursor: pointer;
 	background: #f1f1f1;
 	padding: 6px;
 	border-radius: 50%;
 	color: #333;
+}
+.workout-details .edit-icon {
+	right: 75px;
+}
+.workout-details .delete-icon {
+	right: 20px;
 }
 
 /* new workout form */

@@ -2,11 +2,11 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 
-const WorkoutDetails = ({ workout }) => {
+const WorkoutDetails = ({ workout, setEditableWorkout }) => {
 	const { dispatch } = useWorkoutsContext();
 	const { user } = useAuthContext();
 
-	const handleClick = async () => {
+	const handleDelete = async () => {
 		if (!user) {
 			return;
 		}
@@ -36,9 +36,18 @@ const WorkoutDetails = ({ workout }) => {
 				{workout.reps}
 			</p>
 			<p>
-				{formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}
+				{formatDistanceToNow(new Date(workout.updatedAt), { addSuffix: true })}
 			</p>
-			<span className="material-symbols-outlined" onClick={handleClick}>
+			<span
+				className="material-symbols-outlined edit-icon"
+				onClick={() => setEditableWorkout(workout)}
+			>
+				edit
+			</span>
+			<span
+				className="material-symbols-outlined delete-icon"
+				onClick={handleDelete}
+			>
 				delete
 			</span>
 		</div>
